@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#Logs Docker
+./frontend-foco/front_logs_docker.txt
