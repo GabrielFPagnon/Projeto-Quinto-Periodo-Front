@@ -58,8 +58,8 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>Micro-Saúde & Foco</h1>
-        <p>Inteligência Artificial para sua produtividade mental.</p>
+        <h1>Focused Monk</h1>
+        <p>Foco e Micro-Saúde Mental.</p>
       </header>
 
       <main>
