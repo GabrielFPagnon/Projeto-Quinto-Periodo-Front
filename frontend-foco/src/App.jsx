@@ -31,8 +31,8 @@ function App() {
     setErro('');
 
     try {
-      // Chamada para o seu Back-end Node.js na porta 5000
-      const resposta = await fetch('http://localhost:5000/api/sugerir-rotina', {
+      // Chamada para o Back-end 
+      const resposta = await fetch('/api/rotinas/sugerir-rotina', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,11 +45,12 @@ function App() {
       if (dados.sucesso) {
         setRotinaSugerida(dados.rotinaSugerida);
       } else {
-        setErro(dados.erro || 'Ocorreu um erro desconhecido.');
+        // Cai aqui se o controller cair no catch e enviar sucesso: false
+        setErro(dados.erro || 'Ocorreu um erro ao processar a rotina.');
       }
     } catch (error) {
       console.error('Erro na requisição:', error);
-      setErro('Não foi possível conectar ao servidor. Verifique se o Back-end está rodando na porta 5000.');
+      setErro('Não foi possível conectar ao servidor. Verifique a internet ou o Ingress.');
     } finally {
       setIsLoading(false);
     }
